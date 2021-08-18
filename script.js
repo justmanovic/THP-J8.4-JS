@@ -36,8 +36,20 @@ calcul.addEventListener('click', calculRapide);
 
 // Fonction Pyramide
 function pyramideMario() {
-  answer = prompt("Salut, bienvenue dans ma super pyramide ! Combien d'étages veux-tu ?");
-  console.log("Bonjour Monde");
+  stories = prompt("Salut, bienvenue dans ma super pyramide ! Combien d'étages veux-tu ?");
+  let build_line = "#";
+
+  for (let count = 1; count <= stories - 1; count++) {
+    build_line = " " + build_line;
+  }
+
+  console.log(build_line);
+
+  for (let count = 1; count <= stories - 1; count++) {
+    build_line = build_line.replace(" #", "##");
+    console.log(build_line);
+  }
+
 }
 
 
