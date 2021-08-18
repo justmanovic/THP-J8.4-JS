@@ -10,7 +10,8 @@ bonjour.addEventListener('click', helloWorld);
 
 // Fonction salut
 function salut() {
-  console.log("Bonjour Monde");
+  answer = prompt("C'est quoi ton blase ?");
+  console.log("Bonjour, " + answer);
 }
 
 salut_var = document.getElementById('salut');
@@ -18,7 +19,16 @@ salut_var.addEventListener('click', salut);
 
 // Fonction Calcul
 function calculRapide() {
-  console.log("Bonjour Monde");
+  answer = prompt("De quel nombre veux-tu calculer la factorielle ?");
+  console.log("le résultat est : " + factorielle(Number(answer)));
+}
+
+function factorielle(n) {
+  if (n === 1 || n === 0) {
+    return 1;
+  } else {
+    return n * factorielle(n - 1);
+  }
 }
 
 calcul = document.getElementById('calcul');
@@ -26,8 +36,11 @@ calcul.addEventListener('click', calculRapide);
 
 // Fonction Pyramide
 function pyramideMario() {
+  answer = prompt("Salut, bienvenue dans ma super pyramide ! Combien d'étages veux-tu ?");
   console.log("Bonjour Monde");
 }
+
+
 
 pyramide = document.getElementById('pyramide');
 pyramide.addEventListener('click', pyramideMario);
@@ -58,7 +71,33 @@ life.addEventListener('click', lifeCode);
 
 // Fonction Bot
 function acneBot() {
-  console.log("Bonjour Monde");
+  let answer = "";
+  let bot = "alors ?";
+
+  while (answer !== "1234") {
+    answer = prompt(bot);
+
+    console.log(answer[answer.length - 1])
+
+    if (answer[answer.length - 1] === "?") {
+      bot = "Ouais Ouais...";
+      console.log(bot);
+    } else if (answer === "") {
+      bot = "t'es en PLS ?";
+      console.log(bot);
+    } else if (answer === answer.toUpperCase()) {
+      bot = "Pwa, calme-toi...";
+      console.log(bot);
+    } else if (answer.indexOf("Fortnite") !== -1) {
+      bot = "on se fait une partie soum-soum ?";
+      console.log(bot);
+    } else {
+      bot = "balek";
+      console.log(bot);
+    }
+
+  }
+  console.log("Merci, on s'est bien marré. Bye !");
 }
 
 bot = document.getElementById('bot');
