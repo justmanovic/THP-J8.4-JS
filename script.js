@@ -1,9 +1,5 @@
-console.log("coucou depuis la console");
-
-// ---------------------------------------------------------------------------
-
-
 // Fonction bonjour Monde
+
 function helloWorld() {
   console.log("Bonjour Monde");
 }
@@ -14,6 +10,7 @@ bonjour.addEventListener('click', helloWorld);
 // ---------------------------------------------------------------------------
 
 // Fonction salut
+
 function salut() {
   answer = prompt("C'est quoi ton blase ?");
   console.log("Bonjour, " + answer);
@@ -25,12 +22,14 @@ salut_var.addEventListener('click', salut);
 // ---------------------------------------------------------------------------
 
 // Fonction Calcul
+
 function calculRapide() {
   answer = prompt("De quel nombre veux-tu calculer la factorielle ?");
   console.log("le résultat est : " + factorielle(Number(answer)));
 }
 
 // Fonction Factorielle
+
 function factorielle(n) {
   let fact = n
   if (n === 0 || n === 1)
@@ -58,6 +57,8 @@ function mario() {
     console.log(ligne)
   }
 }
+
+// ---------------------------------------------------------------------------
 
 // Fonction Startup
 
@@ -109,23 +110,16 @@ function sort_az() {
 }
 
 function startupNation() {
-
-  let entrepreneurs_count = entrepreneurs.length;
-  let seventies = [];
-  let names = [];
-  let ages = [];
-
-
   entrepreneurs_70()
   nom_prenom()
   age()
   sort_az()
-
-
 }
+
 startup = document.getElementById('startup');
 startup.addEventListener('click', startupNation);
 
+// ---------------------------------------------------------------------------
 
 // Fonction Biblio
 
@@ -192,6 +186,8 @@ function books_sort(books_arr) {
 biblio = document.getElementById('biblio');
 biblio.addEventListener('click', bibliothecaire);
 
+// ---------------------------------------------------------------------------
+
 // Fonction Code
 function lifeCode() {
   let sequence1 = "CCGUCGUUGCGCUACAGC";
@@ -199,20 +195,10 @@ function lifeCode() {
   let sequences = [sequence1, sequence2]
   let protein = [];
 
-
-  // UCU ou UCC ou UCA ou UCG ou AGU ou AGC => Sérine
-  // CCU ou CCC ou CCA ou CCG => Proline
-  // UUA ou UUG => Leucine
-  // UUU ou UUC => Phénylalanine
-  // CGU ou CGC ou CGA ou CGG ou AGA ou AGG => Arginine
-  // UAU ou UAC => Tyrosine
-
   sequences.forEach(sequence => {
     protein = [];
     for (let count = 0; count <= (sequence.length) / 3 - 1; count++) {
-      // console.log(count)
       let codon = sequence.slice(count * 3, count * 3 + 3)
-      // console.log(codon)
       switch (codon) {
         case 'UCC':
         case 'UCU':
@@ -248,7 +234,6 @@ function lifeCode() {
         case 'UAC':
           protein.push("Tyrosine");
           break;
-
         default:
           console.log("BUG");
           break;
@@ -261,6 +246,8 @@ function lifeCode() {
 life = document.getElementById('life_code');
 life.addEventListener('click', lifeCode);
 
+// ---------------------------------------------------------------------------
+
 // Fonction Bot
 function acneBot() {
   let answer = "";
@@ -268,7 +255,6 @@ function acneBot() {
 
   while (answer !== "1234") {
     answer = prompt(bot);
-
     console.log(answer[answer.length - 1])
 
     if (answer[answer.length - 1] === "?") {
