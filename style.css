@@ -45,22 +45,34 @@
 
 
 body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
   font-family: 'Open Sans';
   color: var(--color-grey-1);
-  letter-spacing: 0.3px;
-  line-height: 1.5;
+  letter-spacing: 1px;
   font-weight: 400;
   background-image: var(--secondary-gradient);
+  text-align: center;
   /* padding: var(--padding); */
+}
+
+body ul{
+  /* border:3px orangered solid; */
+  padding: 0;
+  list-style-type: none;
 }
 
 body li{
   list-style: none;
+  margin-bottom: 0.5rem;
 }
 
 body li:hover{
   cursor: pointer;
-  transform: translateY(1px);
+  color:orangered;
 }
 
 body li:active{
