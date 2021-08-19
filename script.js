@@ -123,7 +123,50 @@ biblio.addEventListener('click', bibliothecaire);
 
 // Fonction Code
 function lifeCode() {
-  console.log("Bonjour Monde");
+  let sequence1 = "CCGUCGUUGCGCUACAGC";
+  let sequence2 = "CCUCGCCGGUACUUCUCG";
+  let protein = []
+
+  // UCU ou UCC ou UCA ou UCG ou AGU ou AGC => Sérine
+  // CCU ou CCC ou CCA ou CCG => Proline
+  // UUA ou UUG => Leucine
+  // UUU ou UUC => Phénylalanine
+  // CGU ou CGC ou CGA ou CGG ou AGA ou AGG => Arginine
+  // UAU ou UAC => Tyrosine
+
+  for (let count = 0; count <= (sequence1.length) / 3 - 1; count++) {
+    console.log(count)
+    let codon = sequence1.slice(count * 3, count * 3 + 3)
+    console.log(codon)
+    switch (codon) {
+      case 'UCU':
+        protein = protein + "Sérine";
+        break;
+      case 'CCG':
+        protein = protein + "Proline";
+        console.log("Proline")
+        break;
+      case 'UUA':
+        protein = protein + "Leucine";
+        break;
+      case 'UUU':
+        protein = protein + "Phénylalanine";
+        break;
+      case 'CGU':
+        protein = protein + "Arginine";
+        break;
+      case 'UAU':
+        protein = protein + "Tyrosine";
+        break;
+
+      default:
+        console.log("BUG");
+        break;
+
+    }
+  }
+  console.log(protein)
+
 }
 
 life = document.getElementById('life_code');
