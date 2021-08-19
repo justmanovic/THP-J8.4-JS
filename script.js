@@ -1,5 +1,8 @@
 console.log("coucou depuis la console");
 
+// ---------------------------------------------------------------------------
+
+
 // Fonction bonjour Monde
 function helloWorld() {
   console.log("Bonjour Monde");
@@ -7,6 +10,8 @@ function helloWorld() {
 
 bonjour = document.getElementById('bonjour_monde');
 bonjour.addEventListener('click', helloWorld);
+
+// ---------------------------------------------------------------------------
 
 // Fonction salut
 function salut() {
@@ -17,104 +22,104 @@ function salut() {
 salut_var = document.getElementById('salut');
 salut_var.addEventListener('click', salut);
 
+// ---------------------------------------------------------------------------
+
 // Fonction Calcul
 function calculRapide() {
   answer = prompt("De quel nombre veux-tu calculer la factorielle ?");
   console.log("le résultat est : " + factorielle(Number(answer)));
 }
 
+// Fonction Factorielle
 function factorielle(n) {
-  if (n === 1 || n === 0) {
-    return 1;
-  } else {
-    return n * factorielle(n - 1);
+  let fact = n
+  if (n === 0 || n === 1)
+    return 1
+  else {
+    while (n > 1) {
+      fact *= (n - 1)
+      n -= 1
+    }
+    return fact
   }
 }
 
 calcul = document.getElementById('calcul');
 calcul.addEventListener('click', calculRapide);
 
-// Fonction Pyramide
-function pyramideMario() {
-  stories = prompt("Salut, bienvenue dans ma super pyramide ! Combien d'étages veux-tu ?");
-  let build_line = "#";
+// ---------------------------------------------------------------------------
 
-  for (let count = 1; count <= stories - 1; count++) {
-    build_line = " " + build_line;
+// Fonction Mario
+
+function mario() {
+  etage = prompt("Combien d'étage pour ta pyramide ?")
+  for (i = 1; i <= etage; i++) {
+    ligne = (" ".repeat(etage - i) + "#".repeat(i))
+    console.log(ligne)
   }
-
-  console.log(build_line);
-
-  for (let count = 1; count <= stories - 1; count++) {
-    build_line = build_line.replace(" #", "##");
-    console.log(build_line);
-  }
-
 }
 
-pyramide = document.getElementById('pyramide');
-pyramide.addEventListener('click', pyramideMario);
-
 // Fonction Startup
-function startupNation() {
 
-  const entrepreneurs = [
-    { first: 'Steve', last: 'Jobs', year: 1955 },
-    { first: 'Oprah', last: 'Winfrey', year: 1954 },
-    { first: 'Bill', last: 'Gates', year: 1955 },
-    { first: 'Sheryl', last: 'Sandberg', year: 1969 },
-    { first: 'Mark', last: 'Zuckerberg', year: 1984 },
-    { first: 'Beyonce', last: 'Knowles', year: 1981 },
-    { first: 'Jeff', last: 'Bezos', year: 1964 },
-    { first: 'Diane', last: 'Hendricks', year: 1947 },
-    { first: 'Elon', last: 'Musk', year: 1971 },
-    { first: 'Marissa', last: 'Mayer', year: 1975 },
-    { first: 'Walt', last: 'Disney', year: 1901 },
-    { first: 'Larry', last: 'Page', year: 1973 },
-    { first: 'Jack', last: 'Dorsey', year: 1976 },
-    { first: 'Evan', last: 'Spiegel', year: 1990 },
-    { first: 'Brian', last: 'Chesky', year: 1981 },
-    { first: 'Travis', last: 'Kalanick', year: 1976 },
-    { first: 'Marc', last: 'Andreessen', year: 1971 },
-    { first: 'Peter', last: 'Thiel', year: 1967 }
-  ];
+const entrepreneurs = [
+  { first: 'Steve', last: 'Jobs', year: 1955 },
+  { first: 'Oprah', last: 'Winfrey', year: 1954 },
+  { first: 'Bill', last: 'Gates', year: 1955 },
+  { first: 'Sheryl', last: 'Sandberg', year: 1969 },
+  { first: 'Mark', last: 'Zuckerberg', year: 1984 },
+  { first: 'Beyonce', last: 'Knowles', year: 1981 },
+  { first: 'Jeff', last: 'Bezos', year: 1964 },
+  { first: 'Diane', last: 'Hendricks', year: 1947 },
+  { first: 'Elon', last: 'Musk', year: 1971 },
+  { first: 'Marissa', last: 'Mayer', year: 1975 },
+  { first: 'Walt', last: 'Disney', year: 1901 },
+  { first: 'Larry', last: 'Page', year: 1973 },
+  { first: 'Jack', last: 'Dorsey', year: 1976 },
+  { first: 'Evan', last: 'Spiegel', year: 1990 },
+  { first: 'Brian', last: 'Chesky', year: 1981 },
+  { first: 'Travis', last: 'Kalanick', year: 1976 },
+  { first: 'Marc', last: 'Andreessen', year: 1971 },
+  { first: 'Peter', last: 'Thiel', year: 1967 }
+];
+
+function entrepreneurs_70() {
+  liste = entrepreneurs
+    .filter(el => el.year < 1980 && el.year > 1969)
+    .map(tab => (tab.first + " " + tab.last))
+    .join(', ')
+
+  console.log("Quels sont les entrepreneurs nés dans les années 70 ?");
+  console.log("Les entrepreneurs nés dans les 70s sont :", liste)
+}
+
+function nom_prenom() {
+  liste = entrepreneurs.map(el => (el.first + " " + el.last))
+  console.log("Voici le prénom et le nom des entrepreneurs", liste);
+}
+
+function age() {
+  console.log("Quel âge aurait chaque inventeur aujourd'hui ?");
+  age = entrepreneurs.map(el => `${el.first} ${el.last} a/aurait aujourd'hui ${2021 - el.year} ans`)
+  console.log(age)
+}
+
+function sort_az() {
+  console.log("Tri par ordre alphabétique :")
+  console.log(entrepreneurs.sort((a, b) => a.last < b.last ? -1 : 1))
+}
+
+function startupNation() {
 
   let entrepreneurs_count = entrepreneurs.length;
   let seventies = [];
   let names = [];
   let ages = [];
 
-  const entrepreneur = { first: "", last: "" }
 
-  console.log("Quels sont les entrepreneurs nés dans les années 70 ?");
-
-  for (let count = 0; count <= entrepreneurs_count - 1; count++) {
-    if (entrepreneurs[count].year <= 1979 && entrepreneurs[count].year >= 1970) {
-      seventies.push(entrepreneurs[count].last);
-    }
-  }
-  console.log(seventies);
-
-  console.log("Voici le prénom et le nom des entrepreneurs");
-
-  for (let count = 0; count <= entrepreneurs_count - 1; count++) {
-    names.push(entrepreneurs[count].first + " " + entrepreneurs[count].last)
-  }
-
-  console.log(names)
-
-
-  console.log("Quel âge aurait chaque inventeur aujourd'hui ?");
-
-  for (let count = 0; count <= entrepreneurs_count - 1; count++) {
-    ages.push(entrepreneurs[count].first + " " + entrepreneurs[count].last + " a ou aurait " + (2021 - entrepreneurs[count].year) + " ans aujourd'hui")
-  }
-
-  console.log(ages)
-
-  console.log("Voici les entrepreneurs par ordre alphabétique du nom de famille");
-
-  console.log(entrepreneurs.sort((a, b) => (a.last < b.last) ? -1 : 1))
+  entrepreneurs_70()
+  nom_prenom()
+  age()
+  sort_az()
 
 
 }
