@@ -50,13 +50,16 @@ calcul.addEventListener('click', calculRapide);
 
 // Fonction Mario
 
-function mario() {
+function pyramide() {
   etage = prompt("Combien d'étage pour ta pyramide ?")
   for (i = 1; i <= etage; i++) {
     ligne = (" ".repeat(etage - i) + "#".repeat(i))
     console.log(ligne)
   }
 }
+
+mario = document.querySelector('#mario');
+mario.addEventListener('click', pyramide);
 
 // ---------------------------------------------------------------------------
 
